@@ -18,17 +18,17 @@ GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
       key: scaffoldKey,
       drawer: const CustomDrawer(),
       backgroundColor: const Color(0xffDBDBDB),
-      appBar: AppBar(
+      appBar: MediaQuery.sizeOf(context).width - 32 < 900 ? AppBar(
         leading: GestureDetector(
           onTap: () => scaffoldKey.currentState!.openDrawer(),
-          child: Icon(
+          child: const Icon(
             Icons.menu,
             color: Colors.white,
           ),
         ),
         backgroundColor: Colors.black,
-      ),
-      body: HomeScreenBody(),
+      ) : null,
+      body: const HomeScreenBody(),
     );
   }
 }
